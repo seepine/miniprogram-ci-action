@@ -1,0 +1,69 @@
+name: 'action-miniprogram-ci'
+description: '将 miniprogram-ci 封装为 action,通过 Actions 实现小程序自动化上传/预览'
+author: 'seepine'
+inputs:
+  mode:
+    required: false
+    description: 'ci模式,默认upload,可选preview'
+    default: 'upload'
+  type:
+    required: false
+    description: '小程序类型,默认miniProgram,可选miniProgram/miniProgramPlugin/miniGame/miniGamePlugin'
+    default: 'miniProgram'
+  project-path:
+    required: false
+    description: '项目的路径，即 project.config.json 所在的目录,默认根路径，即./, 若uniapp项目,一般传入./dist/build/mp-weixin'
+    default: './'
+  private-key:
+    required: false
+    description: '私钥,在获取项目属性和上传时用于鉴权使用，在微信公众平台上登录后下载'
+  private-key-path:
+    required: false
+    description: '私钥完整路径,private-key为空时使用路径值,例如./private.key'
+  ignores:
+    required: false
+    description: '指定需要排除的规则,默认忽略node_modules路径'
+    default: 'node_modules/**/*'
+  version:
+    required: false
+    description: '自定义版本号,空则根据时间戳自动生成YYYY.MMDD.HHmmss'
+  desc:
+    required: false
+    description: '自定义备注'
+    default: 'fix some bug.'
+  robot:
+    required: false
+    description: '指定使用哪一个 ci 机器人,可选值:1 ~ 30'
+    default: 1
+  threads:
+    required: false
+    description: '指定本地编译过程中开启的线程数,默认获取cpu线程数'
+  # 以下当mode为preview有效
+  qrcode-format:
+    required: false
+    description: '返回二维码文件的格式 "image" 或 "base64",默认值 "terminal" 会输出到日志中,可设置output参数将其输出到output文件中'
+    default: 'terminal'
+  qrcode-output-dest:
+    required: false
+    description: '若qrcode-format设置非terminal,则需要设置此路径值,默认./preview-qrcode.png'
+    default: './preview-qrcode.png'
+  page-path:
+    required: false
+    description: '预览页面路径'
+  search-query:
+    required: false
+    description: '预览页面路径启动参数'
+  scene:
+    required: false
+    description: '默认值 1011,具体含义见场景值列表'
+  # 设置输出文件相关
+  output:
+    required: false
+    description: '设置输出文件,可使用{appid},{version},{qrcode}作为占位符'
+  output-path:
+    required: false
+    description: '设置输出文件路径，默认为./output.txt'
+    default: './output.txt'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'

@@ -1,7 +1,7 @@
 {
   // 保存时执行eslint
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   // 从不展示扩展缩写
   "emmet.showExpandedAbbreviation": "never",

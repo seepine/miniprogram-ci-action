@@ -1,6 +1,7 @@
 /* eslint-disable no-shadow */
 export enum Inputs {
   mode = 'mode',
+  platform = 'platform',
   type = 'type',
   projectPath = 'project-path',
   privateKey = 'private-key',

@@ -22,8 +22,12 @@ export const filterMode = (type?: string): Mode => {
   return 'upload'
 }
 
+export const filterPlatform = (val?: string): 'wechat' | 'douyin' => {
+  return val === 'douyin' ? 'douyin' : 'wechat'
+}
 export type CiOption = {
   mode: Mode
+  platform: 'wechat' | 'douyin'
   appid: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   setting?: any

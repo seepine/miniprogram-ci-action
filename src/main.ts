@@ -11,6 +11,7 @@ import {
 import {
   CiOption,
   filterMode,
+  filterPlatform,
   filterQrcodeFormat,
   filterType,
   Preview
@@ -20,6 +21,8 @@ import * as fs from 'fs'
 import * as os from 'os'
 import {upload} from './ci/upload'
 import {preview} from './ci/preview'
+import {upload as dyUpload} from './douyin/upload'
+import {preview as dyPreview} from './douyin/preview'
 
 const defaultPrivateKeyPath = '../private.key'
 
@@ -34,6 +37,7 @@ async function run(): Promise<void> {
 
     option = {
       mode: filterMode(getInput(Inputs.mode)),
+      platform: filterPlatform(getInput(Inputs.platform)),
       appid: '',
       type: filterType(getInput(Inputs.type)),
       projectPath: getInput(Inputs.projectPath) || '',
@@ -97,7 +101,11 @@ async function run(): Promise<void> {
     } else if (option.mode === 'upload') {
       core.info('Options:')
       core.info(`${stringify(option)}`)
-      upload(option)
+      if (option.platform === 'wechat') {
+        await upload(option)
+      } else {
+        await dyUpload(option)
+      }
     } else if (option.mode === 'preview') {
       const previewOption: Preview = {
         ...option,
@@ -115,7 +123,11 @@ async function run(): Promise<void> {
       )
       core.info('Options:')
       core.info(`${stringify(previewOption)}`)
-      qrcode = await preview(previewOption)
+      if (option.platform === 'wechat') {
+        qrcode = await preview(previewOption)
+      } else {
+        qrcode = await dyPreview(previewOption)
+      }
     }
     if (autoPrivateKey) {
       fs.promises.unlink(option.privateKeyPath)

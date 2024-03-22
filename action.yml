@@ -6,6 +6,10 @@ inputs:
     required: false
     description: 'ci模式,默认upload,可选preview'
     default: 'upload'
+  platform:
+    required: false
+    description: '平台,默认wechat,可选douyin'
+    default: 'wechat'
   type:
     required: false
     description: '小程序类型,默认miniProgram,可选miniProgram/miniProgramPlugin/miniGame/miniGamePlugin'

@@ -64,13 +64,15 @@ appid 和 setting 相关设置将会自动从 `project.config.json` 文件中读
 
 | Name               | Description                                                                                                   | Default               |
 | ------------------ | ------------------------------------------------------------------------------------------------------------- | --------------------- |
-| mode               | ci 模式,可选 upload/preview.                                                                                  | upload                |
-| type               | 小程序类型,可选 miniProgram/miniProgramPlugin/miniGame/miniGamePlugin                                         | miniProgram           |
-| project-path       | 项目的路径，即 project.config.json 所在的目录,默认根路径，即./, 若 uniapp 项目,一般传入./dist/build/mp-weixin | ./                    |
-| private-key        | 私钥,在获取项目属性和上传时用于鉴权使用，在微信公众平台上登录后下载, 建议通过 secrets 设置                    |                       |
-| private-key-path   | 私钥完整路径,private-key 为空时使用路径值,例如./private.key                                                   |                       |
-| ignores            | 指定需要排除的规则,默认忽略 node_modules 路径                                                                 | node_modules/**/*     |
-| version            | 自定义版本号,空则根据时间戳自动生成 YYYY.MMDD.HHmmss                                                          | YYYY.MMDD.HHmmss      |
+| platform           | ci 平台，可选 wechat/douyin                                                                                    | wechat                |
+| ci-version         | ci的版本，默认值 `miniprogram-ci@2.0.8`, `tt-ide-cli@0.1.27`                                                      |                       |
+| mode               | ci 模式，可选 upload/preview.                                                                                  | upload                |
+| type               | 小程序类型,可选 miniProgram/miniProgramPlugin/miniGame/miniGamePlugin                                          | miniProgram           |
+| project-path       | 项目的路径，即 project.config.json 所在的目录,默认根路径，即./, 若 uniapp 项目,一般传入./dist/build/mp-weixin      | ./                    |
+| private-key        | 私钥,在获取项目属性和上传时用于鉴权使用，在微信公众平台上登录后下载, 建议通过 secrets 设置                           |                       |
+| private-key-path   | 私钥完整路径,private-key 为空时使用路径值,例如./private.key                                                      |                       |
+| ignores            | 指定需要排除的规则,默认忽略 node_modules 路径                                                                  | node_modules/**/*     |
+| version            | 自定义版本号,空则根据时间戳自动生成 YYYY.MMDD.HHmmss                                                            | YYYY.MMDD.HHmmss      |
 | desc               | 自定义备注                                                                                                    | 'fix some bug.'       |
 | robot              | 指定使用哪一个 ci 机器人,可选值:1 ~ 30                                                                        | 1                     |
 | threads            | 指定本地编译过程中开启的线程数                                                                                | 默认获取 cpu 线程数   |
@@ -81,7 +83,6 @@ appid 和 setting 相关设置将会自动从 `project.config.json` 文件中读
 | scene              | (preview 有效) 具体含义见场景值列表                                                                           | 1011                  |
 | output             | 设置输出文件,可使用{appid},{version},{qrcode}作为占位符                                                       |                       |
 | output-path        | 设置输出文件路径                                                                                              | ./output.txt          |
-| ci-version         | ci的版本，默认值 `miniprogram-ci@2.0.8`, `tt-ide-cli@0.1.27`                                                      |                       |
 
 ## 三、输出（Outputs）
 

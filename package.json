@@ -1,9 +1,10 @@
 {
   "name": "action-miniprogram-ci",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "description": "将 miniprogram-ci 封装为 action, 通过 Actions 实现小程序自动化上传/预览",
   "main": "lib/main.js",
+  "packageManager": "yarn@1.22.19",
   "scripts": {
     "build": "tsc",
     "format": "prettier --write **/*.ts",
@@ -27,9 +28,8 @@
     "@actions/core": "1.10.0",
     "jimp": "0.22.10",
     "jsqr": "1.4.0",
-    "miniprogram-ci": "1.9.8",
     "qrcode-terminal": "0.12.0",
-    "tt-ide-cli": "0.1.25"
+    "tt-ide-cli": "0.1.27"
   },
   "devDependencies": {
     "@types/node": "18.16.3",

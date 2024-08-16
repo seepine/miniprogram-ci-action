@@ -9,7 +9,7 @@ export const preview = async (option: Preview): Promise<string> => {
   cp.execSync(
     [
       'npx',
-      `tma@${option.ciVersion || '0.1.27'}`,
+      `tt-ide-cli@${option.ciVersion || '0.1.27'}`,
       'set-app-config',
       option.appid,
       '--token',
@@ -19,7 +19,7 @@ export const preview = async (option: Preview): Promise<string> => {
 
   const command = [
     'npx',
-    `tma@${option.ciVersion || '0.1.27'}`,
+    `tt-ide-cli@${option.ciVersion || '0.1.27'}`,
     'preview',
     ...getArgs(option),
     '--qrcode-output',
@@ -29,7 +29,7 @@ export const preview = async (option: Preview): Promise<string> => {
   core.info('Command:')
   core.info(`  ${command}`)
   cp.execSync(command)
-  cp.execSync('npx tma logout')
+  cp.execSync(`npx ${`tt-ide-cli@${option.ciVersion || '0.1.27'}`} logout`)
   if (option.qrcodeFormat === 'terminal') {
     const qrcodeData = await getQrCode(option.qrcodeOutputDest)
     const qrcode = await generate(qrcodeData)

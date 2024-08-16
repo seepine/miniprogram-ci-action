@@ -7,7 +7,7 @@ export const upload = async (option: Upload): Promise<void> => {
   cp.execSync(
     [
       'npx',
-      `tma@${option.ciVersion || '0.1.27'}`,
+      `tt-ide-cli@${option.ciVersion || '0.1.27'}`,
       'set-app-config',
       option.appid,
       '--token',
@@ -16,7 +16,7 @@ export const upload = async (option: Upload): Promise<void> => {
   )
   const command = [
     'npx',
-    `tma@${option.ciVersion || '0.1.27'}`,
+    `tt-ide-cli@${option.ciVersion || '0.1.27'}`,
     'upload',
     ...getArgs(option),
     option.projectPath
@@ -24,5 +24,5 @@ export const upload = async (option: Upload): Promise<void> => {
   core.info('Command:')
   core.info(`  ${command}`)
   cp.execSync(command)
-  cp.execSync('npx tma logout')
+  cp.execSync(`npx ${`tt-ide-cli@${option.ciVersion || '0.1.27'}`} logout`)
 }

@@ -1,6 +1,6 @@
 {
   "name": "action-miniprogram-ci",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
   "description": "将 miniprogram-ci 封装为 action, 通过 Actions 实现小程序自动化上传/预览",
   "main": "lib/main.js",

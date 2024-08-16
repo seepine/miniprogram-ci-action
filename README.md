@@ -81,6 +81,7 @@ appid 和 setting 相关设置将会自动从 `project.config.json` 文件中读
 | scene              | (preview 有效) 具体含义见场景值列表                                                                           | 1011                  |
 | output             | 设置输出文件,可使用{appid},{version},{qrcode}作为占位符                                                       |                       |
 | output-path        | 设置输出文件路径                                                                                              | ./output.txt          |
+| ci-version         | ci的版本，默认值 `miniprogram-ci@2.0.8`, `tt-ide-cli@0.1.27`                                                      |                       |
 
 ## 三、输出（Outputs）
 

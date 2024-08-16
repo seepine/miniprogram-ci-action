@@ -1,6 +1,9 @@
 name: 'action-miniprogram-ci'
 description: '将 miniprogram-ci 封装为 action,通过 Actions 实现小程序自动化上传/预览'
 author: 'seepine'
+branding:
+  icon: package
+  color: orange
 inputs:
   mode:
     required: false

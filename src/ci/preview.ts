@@ -33,7 +33,7 @@ export const preview = async (option: Preview): Promise<string> => {
   }
   const command = [
     'npx',
-    'miniprogram-ci',
+    `miniprogram-ci@${option.ciVersion || '2.0.8'}`,
     'preview',
     ...getArgs(option),
     ...previewArgs

@@ -68,6 +68,9 @@ inputs:
     required: false
     description: '设置输出文件路径，默认为./output.txt'
     default: './output.txt'
+  ci-version:
+    required: false
+    description: 'ci版本'
 runs:
   using: 'node16'
   main: 'dist/index.js'

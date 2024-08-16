@@ -19,7 +19,9 @@ export enum Inputs {
   scene = 'scene',
   // output
   output = 'output',
-  outputPath = 'output-path'
+  outputPath = 'output-path',
+
+  ciVersion = 'ci-version'
 }
 
 export enum Outputs {

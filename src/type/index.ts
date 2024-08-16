@@ -40,6 +40,8 @@ export type CiOption = {
   desc?: string
   robot?: number
   threads?: number
+
+  ciVersion?: string
 }
 
 export type Upload = CiOption & {}

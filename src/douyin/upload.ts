@@ -7,7 +7,7 @@ export const upload = async (option: Upload): Promise<void> => {
   cp.execSync(
     [
       'npx',
-      'tma',
+      `tma@${option.ciVersion || '0.1.27'}`,
       'set-app-config',
       option.appid,
       '--token',
@@ -16,7 +16,7 @@ export const upload = async (option: Upload): Promise<void> => {
   )
   const command = [
     'npx',
-    'tma',
+    `tma@${option.ciVersion || '0.1.27'}`,
     'upload',
     ...getArgs(option),
     option.projectPath

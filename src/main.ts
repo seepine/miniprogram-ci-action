@@ -48,7 +48,9 @@ async function run(): Promise<void> {
       version: getInput(Inputs.version) || '',
       desc: getInput(Inputs.desc),
       robot: getInputAsInt(Inputs.robot),
-      threads: getInputAsInt(Inputs.threads)
+      threads: getInputAsInt(Inputs.threads),
+
+      ciVersion: getInput(Inputs.ciVersion)
     }
     if (getInput(Inputs.mode) === 'test') {
       isTest = true

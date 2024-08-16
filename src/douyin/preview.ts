@@ -9,7 +9,7 @@ export const preview = async (option: Preview): Promise<string> => {
   cp.execSync(
     [
       'npx',
-      'tma',
+      `tma@${option.ciVersion || '0.1.27'}`,
       'set-app-config',
       option.appid,
       '--token',
@@ -19,7 +19,7 @@ export const preview = async (option: Preview): Promise<string> => {
 
   const command = [
     'npx',
-    'tma',
+    `tma@${option.ciVersion || '0.1.27'}`,
     'preview',
     ...getArgs(option),
     '--qrcode-output',
